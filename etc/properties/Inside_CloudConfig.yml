@@ -1,0 +1,16 @@
+server:
+  port: 8888
+spring:
+  security:
+    user:
+      name: ADMIN
+      password: ADMIN
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: /home/sawcunha/Documentos/Projetos/Properties_Test
+encrypt:
+  key: foM}kcGHmxB7[C9

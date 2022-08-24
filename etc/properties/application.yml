@@ -1,0 +1,17 @@
+spring:
+  data:
+    redis:
+      repositories:
+        enabled: false
+  redis:
+    port: 26379
+    passowrd: '{cipher}5e954244f702180bb7165fdbf3d89aa7779da7ffa541934a2474dd6844d72065'
+    sentinel:
+      database: 0
+      master: mymaster
+      nodes: localhost
+      passowrd: '{cipher}5e954244f702180bb7165fdbf3d89aa7779da7ffa541934a2474dd6844d72065'
+
+jwt:
+  secret: '{cipher}ce6f091a2b60096ead2c6968e3ec634fd87e863b82e69b3bcc35a4f314a9cf4fc5cc249e6b1a80c9ff6a2e988b8593757f0bdd43cdea45687d433b955033b6bce8bdca1e1fe859f376fff307f7fda93f9368741e259ad2defb1672b1e4fb4017c35f71da3aa177818f760582327a26ee'
+  valid: 60 #Sets token validity time in minutes
