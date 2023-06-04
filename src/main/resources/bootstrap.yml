@@ -1,3 +1,6 @@
+server:
+  port: 8888
+
 spring:
   application:
     name: Inside_CloudConfig
@@ -9,9 +12,6 @@ spring:
     user:
       name: ADMIN
       password: ADMIN
+
 encrypt:
   key: foM@kcG#HmxB7_C9
-#  key-store:
-#    location: file:///Users/ereshgorantla/apiEncryptionKey.jks
-#    password: test12345
-#    alias: apiEncryptionKey

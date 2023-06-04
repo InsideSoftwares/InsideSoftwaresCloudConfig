@@ -10,10 +10,14 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        return httpSecurity
-                .csrf()
-                    .ignoringAntMatchers("/encrypt/**")
-                    .ignoringAntMatchers("/decrypt/**")
-                .disable().build();
+        httpSecurity
+                .csrf().disable()
+                .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers("/encrypt/**").permitAll()
+                        .requestMatchers("/decrypt/**").permitAll()
+                        .requestMatchers("/actuator/**").permitAll()
+                        .anyRequest().authenticated())
+                .httpBasic();
+        return httpSecurity.build();
     }
 }
