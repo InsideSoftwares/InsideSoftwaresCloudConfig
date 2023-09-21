@@ -16,5 +16,11 @@ spring:
         native:
           search-locations: ${CLOUD_SEARCH_LOCATIONS:~/properties}
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
 encrypt:
   key: ${INSIDE_CLOUD_KEY:foM}kcGHmxB7[C9}
