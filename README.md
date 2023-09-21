@@ -17,24 +17,26 @@ Projeto responsavel pelo controle e distribuição dos properties de cada micros
 
 ## Environment personalizaveis
 
-  * `CLOUD_PORT`
+  * `CLOUD_CONFIG_PORT`
     * Define a porta com qual o serviço vai esta acessível
     * Default: `8888`
-  * `CLOUD_PROFILES`
+  * `CLOUD_CONFIG_PROFILES`
     * Define os Profiles para executar o serviço
     * Default: `native`
-  * `CLOUND_ADMIN_NAME`
+  * `CLOUD_CONFIG_NAME`
     * Define o usuario para logar no sistema: InsideSoftwaresCloudConfig
     * Default: `ADMIN`
-  * `CLOUND_ADMIN_PASSWORD`
+  * `CLOUD_CONFIG_PASSWORD`
     * Define o usuario para senha no sistema: InsideSoftwaresCloudConfig
     * Default: `ADMIN`
-  * `CLOUD_SEARCH_LOCATIONS`
+  * `CLOUD_CONFIG_SEARCH_LOCATIONS`
     * Define o caminho com os proprerties dos sistemas
     * Default: `~/properties`
-  * `INSIDE_CLOUD_KEY`
+  * `CLOUD_CONFIG_KEY`
     * Define a chave para realizar a encriptação das senhas nos properties
     * Default: `foM}kcGHmxB7[C9`
+* `LOGBACK_LOG_DIR`
+  * Define local em que será salvo os logs do serviço
 
 ## Realizar encriptação e descriptação dos properties
 
@@ -43,7 +45,7 @@ Projeto responsavel pelo controle e distribuição dos properties de cada micros
 
 ## Utilização em demais projetos
 
-  * Importa no pom do projeto Spring: 
+  * Importa no pom do projeto Spring:
   ```xml
     <dependencyManagement>
       <dependencies>
@@ -56,22 +58,27 @@ Projeto responsavel pelo controle e distribuição dos properties de cada micros
         </dependency>
       </dependencies>
     </dependencyManagement>
-
-    <dependency>
+  ```
+  ```xml
+    <dependencies>
+      <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-config</artifactId>
-    </dependency>
-    <dependency>
+      </dependency>
+      <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-bootstrap</artifactId>
-    </dependency>
+      </dependency>
+    </dependencies>
   ```
-
-  * Será necessário criar um arquivo chamado ```bootstrap.properties``` no projeto:
-  ```properties
-    spring.application.name=Inside_Name_Project
-    spring.profiles.active=native
-    spring.cloud.config.uri=http://localhost:8888
-    spring.cloud.config.username=config
-    spring.cloud.config.password=config
+  * Será necessário criar um arquivo chamado ```bootstrap.yml``` no projeto:
+  ```yml
+    spring:
+      profiles:
+        active: ${CLOUD_PROFILES:native}
+      cloud:
+        config:
+          uri: ${CLOUD_CONFIG_URI:http://localhost:8888}
+          username: ${CLOUD_CONFIG_NAME:ADMIN}
+          password: ${CLOUD_CONFIG_PASSWORD:ADMIN}
   ```

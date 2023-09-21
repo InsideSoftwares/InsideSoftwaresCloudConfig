@@ -1,20 +1,20 @@
 server:
-  port: ${CLOUD_PORT:8888}
+  port: ${CLOUD_CONFIG_PORT:8888}
 
 spring:
   application:
     name: Inside_CloudConfig
   profiles:
-    active: ${CLOUD_PROFILES:native}
+    active: ${CLOUD_CONFIG_PROFILES:native}
   security:
     user:
-      name: ${CLOUND_ADMIN_NAME:ADMIN}
-      password: ${CLOUND_ADMIN_PASSWORD:ADMIN}
+      name: ${CLOUD_CONFIG_NAME:ADMIN}
+      password: ${CLOUD_CONFIG_PASSWORD:ADMIN}
   cloud:
     config:
       server:
         native:
-          search-locations: ${CLOUD_SEARCH_LOCATIONS:~/properties}
+          search-locations: ${CLOUD_CONFIG_SEARCH_LOCATIONS:~/properties}
 
 management:
   endpoints:
@@ -23,4 +23,4 @@ management:
         include: refresh
 
 encrypt:
-  key: ${INSIDE_CLOUD_KEY:foM}kcGHmxB7[C9}
+  key: ${CLOUD_CONFIG_KEY:foM}kcGHmxB7[C9}
