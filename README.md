@@ -2,6 +2,7 @@
 
 Projeto responsavel pelo controle e distribuição dos properties de cada microserviço dos sistemas da Inside Softwares
 * Versão disponivel: 1.0-SNAPSHOT
+* [License](LICENSE.MD)
 
 ## Framework Utilizado
 
