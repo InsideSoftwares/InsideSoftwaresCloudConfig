@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "11f6bd86-77eb-4044-ad16-ee213cc68bcb",
+		"name": "InsideSoftwaresCloudConfig",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8922415"
+	},
+	"item": [
+		{
+			"name": "Encrypt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "teste"
+				},
+				"url": {
+					"raw": "{{URL}}/encrypt",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"encrypt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decrypt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "5f4329d186e5a5b73254f398cfe1a5018558fd11cf77dea44191c0896252ae3b"
+				},
+				"url": {
+					"raw": "{{URL}}/decrypt",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"decrypt"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{CLOUND_ADMIN_PASSWORD}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{CLOUND_ADMIN_NAME}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:9000",
+			"type": "string"
+		},
+		{
+			"key": "CLOUND_ADMIN_NAME",
+			"value": "ADMIN",
+			"type": "string"
+		},
+		{
+			"key": "CLOUND_ADMIN_PASSWORD",
+			"value": "ADMIN",
+			"type": "string"
+		}
+	]
+}

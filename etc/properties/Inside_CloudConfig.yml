@@ -1,16 +1,18 @@
 server:
   port: 8888
+
 spring:
+  profiles:
+    active: ${CLOUD_PROFILES:native}
   security:
     user:
-      name: ADMIN
-      password: ADMIN
-  profiles:
-    active: native
+      name: ${CLOUND_ADMIN_NAME:ADMIN}
+      password: ${CLOUND_ADMIN_PASSWORD:ADMIN}
   cloud:
     config:
       server:
         native:
-          search-locations: /home/sawcunha/Documentos/Projetos/Properties_Test
+          search-locations: ${CLOUD_SEARCH_LOCATIONS:~/properties}
+
 encrypt:
-  key: foM}kcGHmxB7[C9
+  key: ${INSIDE_CLOUD_KEY:foM}kcGHmxB7[C9}

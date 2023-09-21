@@ -1,17 +1,20 @@
 server:
-  port: 8888
+  port: ${CLOUD_PORT:8888}
 
 spring:
   application:
     name: Inside_CloudConfig
-
   profiles:
-    active: native,postgres,mysql,oracle
-
+    active: ${CLOUD_PROFILES:native}
   security:
     user:
-      name: ADMIN
-      password: ADMIN
+      name: ${CLOUND_ADMIN_NAME:ADMIN}
+      password: ${CLOUND_ADMIN_PASSWORD:ADMIN}
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: ${CLOUD_SEARCH_LOCATIONS:~/properties}
 
 encrypt:
-  key: foM@kcG#HmxB7_C9
+  key: ${INSIDE_CLOUD_KEY:foM}kcGHmxB7[C9}
