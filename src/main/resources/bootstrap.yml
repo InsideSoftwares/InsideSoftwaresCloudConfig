@@ -1,5 +1,7 @@
 server:
   port: ${CLOUD_CONFIG_PORT:8888}
+  http2:
+    enable: true
 
 spring:
   application:
@@ -10,6 +12,9 @@ spring:
     user:
       name: ${CLOUD_CONFIG_NAME:ADMIN}
       password: ${CLOUD_CONFIG_PASSWORD:ADMIN}
+      roles:
+        - ACTUATOR
+        - USER
   cloud:
     config:
       server:
@@ -20,7 +25,9 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh
+        include: "*"
+    health:
+      show-details: always
 
 encrypt:
   key: ${CLOUD_CONFIG_KEY:foM}kcGHmxB7[C9}
