@@ -1,4 +1,4 @@
-FROM ghcr.io/graalvm/jdk-community:21.0.0
+FROM eclipse-temurin:21.0.1_12-jre-ubi9-minimal
 
 RUN rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
